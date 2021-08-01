@@ -16,7 +16,7 @@ class BaseController {
     }
   }
 
-  showLoading([String message]) {
+  showLoading([String? message]) {
     DialogHelper.showLoading(message);
   }
 
