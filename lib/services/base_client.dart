@@ -26,8 +26,6 @@ class BaseClient {
     var payload = json.encode(payloadObj);
     try {
       var response = await http.post(uri, body: payload).timeout(Duration(seconds: TIME_OUT_DURATION));
-      throw BadRequestException(
-          '{"reason":"your message is incorrect", "reason_code":"invalid_message"}', response.request!.url.toString());
       return _processResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection', uri.toString());
